@@ -15,7 +15,7 @@ class Forest:
     # Constructeur
     #
 
-    def __init__(self, name, hero: Hero):
+    def __init__(self, name : str, hero: Hero):
         self.__name = name
         self.__hero = hero
 
@@ -62,13 +62,11 @@ class Forest:
 
             if character_turn:
                 self.hero.hit(self.monster)
-                if self.monster.hp <= 0:
-                    self.die(self.monster)
+                if self.monster.hp <= 0: self.die(self.monster)
 
             else:
                 self.monster.hit(self.hero)
-                if self.hero.hp <= 0:
-                    self.die(self.hero)
+                if self.hero.hp <= 0: self.die(self.hero)
 
             character_turn = not character_turn
 
@@ -101,7 +99,7 @@ class Forest:
         if isinstance(character, Hero):
             self.__is_game_over = True
 
-            print(f"{character.__class__.__name__} est mort.")
+            print(f"{character.name} est mort.")
             print(f"{self.hero.name} a gagné {self.nb_won_fights} combat(s)")
             print(f"{self.hero.name} a accumulé {self.hero.gold}x or")
             print(f"{self.hero.name} a accumulé {self.hero.leather}x cuir")
