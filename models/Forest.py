@@ -15,7 +15,7 @@ class Forest:
     # Constructeur
     #
 
-    def __init__(self, name : str, hero: Hero):
+    def __init__(self, name: str, hero: Hero):
         self.__name = name
         self.__hero = hero
 
@@ -57,16 +57,17 @@ class Forest:
         self.__monster = self.generate_monster()
         character_turn = True
 
-
         while not self.is_game_over:
 
             if character_turn:
                 self.hero.hit(self.monster)
-                if self.monster.hp <= 0: self.die(self.monster)
+                if self.monster.hp <= 0:
+                    self.die(self.monster)
 
             else:
                 self.monster.hit(self.hero)
-                if self.hero.hp <= 0: self.die(self.hero)
+                if self.hero.hp <= 0:
+                    self.die(self.hero)
 
             character_turn = not character_turn
 
@@ -85,15 +86,15 @@ class Forest:
 
         print("Nous rencontrons un monstre : ")
         print(monster)
-        
+
         input("\nAppuyez sur une touche pour lancer le prochain combat...\n")
-        
+
         print("\n~~~ Lancement du combat ~~~\n")
 
         return monster
 
     def die(self, character: Character):
-    
+
         print("\n~~~ Fin du combat ~~~\n")
 
         if isinstance(character, Hero):

@@ -42,10 +42,10 @@ class Hero (Character, ILeather, IGold):
     def repose(self):
         self.reset_hp()
 
-    def loot(self, target : Monster):
+    def loot(self, target: Monster):
 
         print("")
-        
+
         if isinstance(target, ILeather):
             self.__leather += target.leather
             print(f"[Dépouille] : {self.name} a gagné {target.leather}x cuir")

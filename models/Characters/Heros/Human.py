@@ -2,7 +2,7 @@ from models.Characters.Heros.Hero import Hero
 
 
 class Human (Hero):
-    
+
     #
     # Constructeur
     #
