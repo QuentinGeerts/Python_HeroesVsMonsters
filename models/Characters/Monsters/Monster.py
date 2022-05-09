@@ -26,20 +26,15 @@ class Monster (Character):
     #
 
     def __str__(self):
-        return super().__str__() \
-            + f"Inventaire :\n" \
-            + f" ~ {self.leather}x cuir" if isinstance(self, ILeather) else "" \
-            + f" ~ {self.gold}x or" if isinstance(self, IGold) else "" \
-            + f"\n"
 
-        # str = super().__str__() + f"Inventaire :\n"
+        str = super().__str__() + f"Inventaire :\n"
 
-        # if isinstance(self, ILeather): str += f" ~ {self.leather}x cuir"
+        if isinstance(self, ILeather): str += f" ~ {self.leather}x cuir"
 
-        # if isinstance(self, ILeather) and isinstance(self, IGold): str += "\n"
+        if isinstance(self, ILeather) and isinstance(self, IGold): str += "\n"
 
-        # if isinstance(self, IGold): str += f" ~ {self.gold}x or"
+        if isinstance(self, IGold): str += f" ~ {self.gold}x or"
 
-        # str += "\n"
+        str += "\n"
 
-        # return str
+        return str
